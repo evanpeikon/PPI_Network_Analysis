@@ -210,8 +210,9 @@ To dive deeper, we can simulate how the top nodes based on degree centrality int
 
 ## 🧬 Modeling Protein Interactions Using Differential Equations
 
-Using the subgraph for the top 10 proteins, based on degree centrality, we can create the following interaction map:
+In biological systems, proteins rarely act alone—they function within intricate networks, where their interactions drive processes like signal transduction, metabolism, and gene expression. To better understand such systems, we can model protein-protein interaction (PPI) networks as mathematical systems. Here, we focus on a subset of 10 proteins, identified based on their degree centrality (a measure of how many connections a protein has in the network). These proteins form a highly interactive subgraph, which we can use to simulate protein dynamics.
 
+The subgraph includes the following interactions:
 - Itgax is connected to Fcgr3, Csf1r, Ptprc, and Cd86.
 - Fcgr3 is connected to Itgax, Tyrobp, Csf1r, Ptprc, and Cd86.
 - Tyrobp is connected to Fcgr3 and Csf1r.
@@ -223,7 +224,8 @@ Using the subgraph for the top 10 proteins, based on degree centrality, we can c
 - Ifit3 is connected to Cxcl10, Stat1, and Irf7.
 - Irf7 is connected to Stat1, Cxcl10, and Ifit3.
 
-These connections could be translated into a system of differential equations to simulate their interactions. For a basic simulation, you would set up a system of ordinary differential equations (ODEs) where each protein's change in concentration is governed by its interactions with connected proteins. For example, we can say that the change in a given proteins concentration over time can be represented by the formula $\frac{dP_i}{dt}$ = $\Sigma{k_{ij}P_j} - \Sigma{k_{ji}P_i}$. 
+
+These connections could be translated into a system of differential equations to simulate their interactions. For a basic simulation, you would set up a system of ordinary differential equations (ODEs) where each protein's change in concentration is governed by its interactions with connected proteins. For example, we can say that the change in a given proteins concentration over time can be represented by the formula $\frac{dP_i}{dt}$ = $\Sigma{k_{ij}P_j} - \Sigma{k_{ji}P_i}$. Here, $k_{ij}$ represents the interaction strength from protein $𝑗$ to protein $i$. This equation balances incoming and outgoing fluxes to determine how protein concentrations evolve over time.
 
 Using the code below, we can simulate the genetic circuit including the proteins above, and their interactions:
 
@@ -299,13 +301,18 @@ plt.tight_layout()
 plt.show()
 ```
 
-<img width="896" alt="Screenshot 2025-01-12 at 12 59 53 PM" src="https://github.com/user-attachments/assets/f8aa375a-d567-4c28-9adb-207b589a4dbd" />
+<img width="750" alt="Screenshot 2025-01-12 at 12 59 53 PM" src="https://github.com/user-attachments/assets/f8aa375a-d567-4c28-9adb-207b589a4dbd" />
 
-Explain what chart above represents. 
+The resulting chart illustrates the protein concentration dynamics over time. Each curve represents a protein, showing how its level changes due to interactions within the network. The specific shape of these curves depends on the initial concentrations and interaction strengths.
 
-However, be aware that I used arbitray initial concentrations for the proteins above and arbitraty interaction strengths.  Building accurate models requires reliable data on interaction strengths (edge weights) and kinetic parameters for each interaction. For many PPI networks, this data might not be readily available. In this example, interactions are hypothetical and should be validated with experimental data.
+For instance, proteins with many incoming connections or strong interactions ($k_{ij}$) may show rapid increases in concentration, while others may stabilize or decay depending on their role in the network. Oscillatory or equilibrium behaviors might emerge, reflecting the balance of input and output fluxes.
 
-Additionally, simulations should be compared against experimental time-course data (e.g., protein expression levels over time) to ensure the model captures the biological system accurately.
+This simulation uses arbitrary interaction strengths ($k_{ij}$=0.1) and initial concentrations. While these choices allow for a basic demonstration, they lack biological accuracy. Reliable data on interaction strengths and kinetic parameters are crucial for building realistic models, but such data is often unavailable for complex PPI networks. Further, this model excludes feedback loops, regulatory interactions, and external signals, which are critical components of real biological systems. Expanding the model to incorporate these factors and validating it against experimental time-course data (e.g., protein expression levels) would improve its accuracy and utility.
 
-Simplifications in the model, such as excluding feedback loops or regulatory factors, should be clearly stated. While this example focuses on a subset of proteins, expanding the model to include additional nodes or pathways could enhance its utility.
-This combination of network visualization and dynamic modeling provides a powerful framework for exploring the biological mechanisms driving complex diseases like Alzheimer’s.
+However, despite its simplicity, this dynamic modeling framework offers a powerful way to explore how interactions within a network drive system-wide behavior. In the context of Alzheimer’s disease, for example, identifying proteins with significant influence in the network could help prioritize targets for therapeutic intervention. By combining network analysis with dynamic simulations, bioinformatics researchers can gain deeper insights into the molecular mechanisms underlying complex diseases.
+
+
+
+
+
+
