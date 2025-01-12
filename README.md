@@ -22,11 +22,13 @@ Furthemore, one of the most valuable aspects of PPI network analysis is the iden
 Now, in this sub-section I'm going to show you how to map DEGs to a PPI network. For this demonstration I'm going to use a file named ```deg_5xFAD```, which is an output file from a [previous analysis](https://github.com/evanpeikon/mouse_AD_models) I performed exploring the similarities, differences, and overlapping features between three mutant mouse models of Alzheimer’s disease. However, you can use any CSV file containing differentially expressed genes, with only minor modifications to the code below:
 
 ```python
+# import all libraries for this tutorial 
 import pandas as pd
 import requests
 import networkx as nx
 import matplotlib.pyplot as plt
 from io import StringIO
+from scipy.integrate import solve_ivp
 
 # Step 1: Load the DEGs CSV
 deg_df = pd.read_csv('/deg_5xFAD.csv') # Path to your CSV file
@@ -230,10 +232,6 @@ These connections could be translated into a system of differential equations to
 Using the code below, we can simulate the genetic circuit including the proteins above, and their interactions:
 
 ```python
-import numpy as np
-from scipy.integrate import solve_ivp
-import matplotlib.pyplot as plt
-
 # Define the interaction map based on top 10 nodes by degree centrality
 interaction_map = {
     "Itgax": ["Fcgr3", "Csf1r", "Ptprc", "Cd86"],
