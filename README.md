@@ -2,16 +2,15 @@
 
 ## 🧬 Introduction
 
-Differential expression analysis is a cornerstone of bioinformatics, enabling researchers to identify differentially expressed genes (DEGs) that exhibit significant changes in expression between different experimental conditions. By comparing gene expression profiles between control and treatment groups, we can uncover molecular mechanisms underlying biological processes, disease states, or treatment responses. One valuable way to further explore these findings is by mapping differentially expressed genes to a protein-protein interaction (PPI) network.
+Differential expression analysis is a cornerstone of bioinformatics, enabling researchers to identify differentially expressed genes (DEGs) that exhibit significant changes in expression between varying experimental conditions. By comparing gene expression profiles between control and treatment groups, we can uncover molecular mechanisms underlying biological processes, disease states, or treatment responses. One valuable way to further explore these findings is by mapping differentially expressed genes to a protein-protein interaction (PPI) network.
 
 A PPI network is a powerful tool for examining the relationships between proteins within a biological system. Unlike genes, which typically act independently, proteins interact with each other to perform essential cellular functions. These interactions are critical for maintaining biological processes, and when disrupted, they can contribute to disease states.
 
 By mapping differentially expressed genes (DEGs) to a PPI network, we can gain deeper insights into how the proteins encoded by these genes are interconnected and how changes in gene expression translate into broader biological effects. In this article, you’ll learn what PPI network are, how to map DEGS to PPI networks and identify “hubs” in the network, and how to simulate genetic circuits using this information. Let’s dive in!  
 
-
 ## 🧬 What Can We Learn From PPI Networks?
 
-As previously discussed, a Protein-Protein Interaction (PPI) network is a powerful tool for examining the relationships between proteins within a biological system. By mapping differentially expressed genes (DEGs) to a PPI network, we can visualize how the proteins they encode interact with one another, providing insights into the molecular mechanisms underlying the observed phenotype. This mapping reveals intricate protein relationships, offering a more comprehensive understanding of how changes in gene expression affect cellular functions.
+As previously discussed, a Protein-Protein Interaction (PPI) network is a powerful tool for examining the relationships between proteins within a biological system. By mapping differentially expressed genes (DEGs) to a PPI network, we can visualize how the proteins they encode interact with one another, providing insights into the molecular mechanisms underlying the observed phenotype.
 
 Additionally, analyzing the PPI network allows us to identify biological pathways and cellular processes that are significantly influenced by the experimental conditions. These interactions often highlight key pathways involved in disease progression, cellular stress responses, or signaling cascades. Using clustering analysis, we can uncover tightly-knit protein modules, which may be enriched for specific biological functions relevant to the study. For example, proteins within a cluster might be involved in a shared signaling pathway or cellular response, pinpointing areas for deeper exploration.
 
