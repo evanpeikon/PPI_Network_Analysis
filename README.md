@@ -123,7 +123,7 @@ Using the code above, we observe 13 distinct clusters within our PPI network. Th
 
 Additionally, the combination of a sparse network and multiple clusters provides additional insights. While the overall network is not densely interconnected (as reflected by the low network density), the clusters indicate that certain subsets of proteins are tightly connected. This means that while the DEGs may not form a globally interconnected network, they do organize into biologically meaningful groupings. These clusters are likely to represent key processes relevant to the disease, even if they do not interact extensively with one another across the network.
 
-To further understand the importance of these clusters and the overall connectivity of our PPI network, we can delve into additional metrics such as degree centrality, betweeness centrality, and the clustering coefficients, which can help uncover key proteins and interactions within the clusters that are most relevant to the biological processes under investigation.
+To further understand the importance of these clusters and the overall connectivity of our PPI network, we can delve into additional metrics such as degree centrality, betweenness centrality, and the clustering coefficients, which can help uncover key proteins and interactions within the clusters that are most relevant to the biological processes under investigation.
 
 ## 🧬 Exploring the Connectivity of A PPI Network 
 
@@ -225,7 +225,6 @@ The subgraph includes the following interactions:
 - Ifit3 is connected to Cxcl10, Stat1, and Irf7.
 - Irf7 is connected to Stat1, Cxcl10, and Ifit3.
 
-
 These connections could be translated into a system of differential equations to simulate their interactions. For a basic simulation, you would set up a system of ordinary differential equations (ODEs) where each protein's change in concentration is governed by its interactions with connected proteins. For example, we can say that the change in a given proteins concentration over time can be represented by the formula $\frac{dP_i}{dt}$ = $\Sigma{k_{ij}P_j} - \Sigma{k_{ji}P_i}$. Here, $k_{ij}$ represents the interaction strength from protein $𝑗$ to protein $i$. This equation balances incoming and outgoing fluxes to determine how protein concentrations evolve over time.
 
 Using the code below, we can simulate the genetic circuit including the proteins above, and their interactions:
@@ -300,9 +299,7 @@ plt.show()
 
 <img width="750" alt="Screenshot 2025-01-12 at 12 59 53 PM" src="https://github.com/user-attachments/assets/f8aa375a-d567-4c28-9adb-207b589a4dbd" />
 
-The resulting chart illustrates the protein concentration dynamics over time. Each curve represents a protein, showing how its level changes due to interactions within the network. The specific shape of these curves depends on the initial concentrations and interaction strengths.
-
-For instance, proteins with many incoming connections or strong interactions ($k_{ij}$) may show rapid increases in concentration, while others may stabilize or decay depending on their role in the network. Oscillatory or equilibrium behaviors might emerge, reflecting the balance of input and output fluxes.
+The resulting chart illustrates the protein concentration dynamics over time. Each curve represents a protein, showing how its level changes due to interactions within the network. The specific shape of these curves depends on the initial concentrations and interaction strengths. For instance, proteins with many incoming connections or strong interactions ($k_{ij}$) may show rapid increases in concentration, while others may stabilize or decay depending on their role in the network. Oscillatory or equilibrium behaviors might emerge, reflecting the balance of input and output fluxes.
 
 This simulation uses arbitrary interaction strengths ($k_{ij}$=0.1) and initial concentrations. While these choices allow for a basic demonstration, they lack biological accuracy. Reliable data on interaction strengths and kinetic parameters are crucial for building realistic models, but such data is often unavailable for complex PPI networks. Further, this model excludes feedback loops, regulatory interactions, and external signals, which are critical components of real biological systems. Expanding the model to incorporate these factors and validating it against experimental time-course data (e.g., protein expression levels) would improve its accuracy and utility.
 
