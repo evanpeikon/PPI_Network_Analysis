@@ -309,5 +309,6 @@ However, despite its simplicity, this dynamic modeling framework offers a powerf
 ## You May Also Enjoy the Following DIY Guides...
 - [Python Fundamentals For Biologists](https://github.com/evanpeikon/Python_Fundamentals_Biology)
 - [Bash Fundamentals For Bioinformatics](https://github.com/evanpeikon/bash_fundamentals)
+- [Assorted Functions In Numerical Methods & Systems Biology](https://github.com/evanpeikon/systems_biology)
 - [Introduction to Functional Enrichment Analysis](https://github.com/evanpeikon/functional_enrichment_analysis)
 
